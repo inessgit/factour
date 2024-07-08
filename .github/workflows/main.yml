@@ -1,0 +1,28 @@
+name: Deploy to Production (factour.com)
+
+on:
+  # Trigger on push or pull request events to main branch
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+  # Allow manual triggering from Actions tab
+  workflow_dispatch:
+
+jobs:
+  web-deploy:
+    name: Deploy Production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Latest Code
+        uses: actions/checkout@v2
+
+      - name: Deploy to Production Server
+        uses: SamKirkland/FTP-Deploy-Action@4.3.2
+        with:
+          server:  ftp.pagetogo.tg
+          username: pagetgmonworld@page-tg.mon.world
+          password: Factour@2000
