@@ -1,0 +1,12 @@
+body{
+        background-image: url('../img/bg.jpg') no-repeat center top;
+        background-color: #310b28;
+        /*background-position-x: center;
+        background-position-y: top;
+        background-size: initial;
+        background-repeat-x: no-repeat;
+        background-repeat-y: no-repeat;
+        background-attachment: initial;
+        background-origin: initial;
+        background-clip: initial;*/
+    }

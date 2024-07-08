@@ -1,0 +1,415 @@
+ body {
+    padding-top: 0px;
+    padding:0px;
+    margin-right: 10px;
+    /*background-color: #f5f5f5;*/
+    /*background-image: url(img/bg-2-noise.jpg);*/
+}
+
+.tr_blank td{
+    height:5px;
+}
+
+.td{
+    padding-top: 5px; 
+    padding-bottom: 5px; 
+    padding-left: 2px;
+    padding-right: 1px;
+    margin-bottom: 5px;
+    text-indent: 0px;
+    text-align: left;
+}
+
+.td_solo {
+    border: solid 1px rgb(17,17,17);
+}
+
+/*            .ques{
+                text-align: left;
+                width: 150px;
+                color:red;
+                border:solid;
+                float: left;
+                text-transform: fullsize-kana;
+                font-family: verdana;
+                font-size: 14px;
+            }*/
+
+.rep{
+    margin-left: 5px;
+    text-align: center;
+    float: left;
+    //font-family: roman bold;
+    font-size: 16px;
+    /*border:solid;*/
+}
+
+#engagement{
+    font-size: 10px;
+    line-height: 10px;
+    padding: 1px;
+    font-family: book antiqua;
+    border:none;
+}
+
+#pied{
+    font-size:11px;
+    font-family: algerian fb;
+    font-weight: bold;
+    border-top: dashed 4px red;
+    width:100%;
+    margin-top: 10px;
+}
+#pied td{
+    vertical-align: top;
+    text-align:right;
+    //                padding-left: 80px;
+}
+
+
+
+.mes_div{
+    height:130px;
+    border:solid 1px black;
+    padding: 10px 3px 10px 3px;
+    font-size:13px;
+}
+
+#div_gauche{
+    float: left;
+    width:260px;
+}
+
+#div_gauche label{
+    line-height: 30px;
+}
+
+#div_droit label{
+
+}
+
+#div_droit{
+    float: right;
+    margin-left: 5px;
+    width:390px;
+
+}
+
+#entete, #bia-body{
+    width:650px;
+    margin: auto;
+    text-align: center;
+    margin-top: 5px;
+}
+
+table.info-table{
+    width:650px;
+    margin: auto;
+    text-align: center;
+    margin-top: 5px;
+    border: solid 1px black
+}
+
+#bia-body{
+}
+
+.td_logo{
+    width: 90px;
+}
+
+.les_logos{
+    height:80px;
+    width: 90px;
+    /*border:solid 1px;*/
+}
+
+#centre_head{
+    /*box-shadow: 3px 3px;*/
+    width:350px;
+    padding: 15px;
+    /*border:outset 2px black;*/
+    font-family: Helvetica²;
+    font-size:18px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 3px;
+}
+
+#top_head{
+    box-shadow: 1px 1px;
+    width:350px;
+    padding: 5px;
+    border:outset 2px black;
+    font-family: Helvetica;
+    text-transform: uppercase;
+    font-size:18px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 3px;
+}
+
+.les_data{
+    font-size: 12px;
+}
+
+#garantie_td{
+    /*padding-bottom: 0px;*/
+}
+
+#garantie_td table{
+    width: 650px;
+}
+
+#garantie_td table td{
+    border-color: black;
+}
+
+#garantie_td ol,#clause_td ol{
+    /*margin: 0px;*/
+    padding: 0px;
+    font-weight: bold;
+}
+
+#precise{
+    font-size: 12px;
+}
+
+ul,ol{
+    /*                margin-left: 20px;*/
+}
+
+#clause_benef, #accepte_td, #puces{
+    width: 650px;
+    text-align: justify;
+}
+
+#puces{
+    padding: 0px;
+    font-size: 12px;
+}
+
+#puces li {
+    font-size: 12px;text-align: justify;
+}
+
+#puces li{
+    margin: 0px;
+    padding: 0px;
+}
+
+#clause_benef{
+    border:solid 1px black;
+    height:110px;
+}
+
+#accepte_td{
+    font-weight: bold;
+    font-size:12px;
+}
+
+#fait_td{
+    text-align: right;  
+    padding-bottom: 10px;
+}
+
+#visa_td{
+    padding-bottom: 20px;
+}
+
+#visa_bank{
+    float: left;
+}
+
+#signature{
+    float: right;
+}
+
+#uat_table{
+    width:100%;
+    border-top: solid 1px;
+}
+
+#uat_table td, #uat_table th{
+    vertical-align: bottom;
+    text-align: left;
+}
+
+#effet_table{
+    width: 100%;
+}
+
+#produit{
+    margin-top: 30px;
+}
+
+.titre_zone{
+    /*font-weight: bold;
+    font-size: 20px;
+    font-family: verdana;
+    
+    */
+
+    font-size: 16px;
+    font-family: Engravers MT;
+    font-weight: bolder;
+    /*text-align: center;*/
+    vertical-align: bottom;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+
+}
+
+.colone{
+    font-weight: bold;
+    vertical-align: central;
+}
+
+.libelle{
+    font-weight: initial;
+    vertical-align: top;
+    padding: 2px 0px 2px 0px;
+    font-family: arial;
+}
+
+#t_right .libelle{
+    width: 120px;
+}
+
+#t_left .libelle{
+    width:80px;
+}
+
+.adherent{
+    width: 245px;
+}
+
+.titre_hr{
+    margin-top:0px;
+    border-color: black;
+    margin-bottom: 5px;
+    display: none;
+}
+
+.effet_label{
+    width:250px;
+    float: left;
+}
+.signature{
+    height:20px;
+    border:solid 1px;
+    width:150px;
+    text-align: center;
+}
+
+#attention{
+    font-weight: bold;
+    font-style: italic;
+    font-size: 12px;
+    border: solid 1px black;
+}
+
+table tr td.infoline{
+    text-align: justify;
+}
+
+table tr td.note-tr{
+    text-align: left;
+    font-weight: bold;
+    font-size: smaller;
+}
+
+table tr td.note-tr span{
+    font-weight: normal;
+}
+
+table tr td#funUl{
+    text-align: left;
+}
+
+table tr td#funUl p{
+    font-size: 13px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+img.checkedImg{
+    width:15px;
+    height:15px;
+}
+
+table tr#fait-le-tr td{
+    padding-top: 10px;
+}
+
+.weight{
+    font-weight: bold;
+}
+table tr td.weight.small{
+    font-weight: bold;
+    font-size: smaller;
+}
+
+.block{
+    display: block;
+}
+
+table tr td#funUl p{
+
+}
+
+table.info-table tr th{
+    border-bottom: solid 1px;    
+}
+table.info-table tr td:last-child{
+    border-right:none;
+}
+table.info-table tr td,table.info-table tr th{
+    border-bottom: solid 1px;
+    border-right: solid 1px;
+
+}
+
+table tr.no-border, table tr td.no-border, table.no-border{
+    border: none;
+}
+
+.left-text{
+    text-align: left;
+}
+
+.right-text{
+    text-align: right;
+}
+
+table tr#signature-tr td{
+    padding-bottom: 40px;
+}
+
+table#assure-table tr td{
+    text-align: left;
+}
+
+table#assure-table tr td.center-text{
+    text-align: center;
+}
+
+#assureur-signature {
+    background: url('../img/Signature.jpg') bottom no-repeat;
+    background-size: 80px 60px;
+    background-position: 100px 10px;
+}
+
+table#garantie-table tr th{
+    font-size: 14px
+}
+
+table#print_menu, table#print_menu tr, table#print_menu tr td{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+#assure-table tr td{
+    font-size: 12px;
+}

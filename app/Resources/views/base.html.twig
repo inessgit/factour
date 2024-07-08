@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        
+        <title>{% block title %}Factour{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <nav class="navbar navbar-default" role="navigation">
+                      <div class="container-fluid">
+                        <div class="navbar-header">
+                          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex2-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                          </button>
+                          <a class="navbar-brand" href="#">FACTOUR</a>
+                        </div>
+                        <div class="collapse navbar-collapse navbar-ex2-collapse">
+                          <ul class="nav navbar-nav">
+                            <li class=""><a href="{{ path('home') }}">Enregistrer une facture</a></li>
+                            <li class=""><a href="{{ path('sans_pu') }}">Enregistrer une facture(Sans pu)</a></li>
+                            <li class=""><a href="{{ path('vente_liste') }}">Liste des ventes</a></li>
+                          </ul>
+                      </div>
+                    </nav>
+                <div class="panel panel-body">
+                    {% block body %}{% endblock %}                    
+                    <center>
+                        <!--h6>Developpé par <span title="+228 90 43 54 91 (manouauguste7@gmail.com)">MANOU Auguste</span> & <span title="+228 90 95 99 53">C. EDORH</span></h6-->
+                    </center>
+                </div>
+            </div>
+        </div>
+        {% block javascripts %}
+        <script type="text/javascript">
+            $(function () {
+                var current_page_URL = location.href;
+                $("a").each(function () {
+                    if ($(this).attr("href") !== "#") {
+                        var target_URL = $(this).prop("href");
+                        if (target_URL == current_page_URL) {
+                            $('nav a').parents('li, ul').removeClass('active');
+                            $(this).parent('li').addClass('active');
+                            return false;
+                        }
+                    }
+                });
+            });
+        </script>
+        {% endblock %}
+    </body>
+</html>

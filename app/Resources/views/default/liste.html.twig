@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('joli-design/css/bootstrap/bootstrap.min.css') }}"/>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="box col-md-12">
+            <div class="box-inner">
+                <div class="box-header well">
+                    <h2><i class="glyphicon"></i> Liste des ventes</h2>
+                    <div class="pull-right">
+                        <button onclick="window.location='{{ path('home') }}'">Nouvelle facture</button><br>
+                    </div>
+                    {#<div class="box-icon">
+                        <a href="#" class="btn btn-setting btn-round btn-default"><i
+                                class="glyphicon glyphicon-cog"></i></a>
+                        <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                                class="glyphicon glyphicon-chevron-up"></i></a>
+                        <a href="#" class="btn btn-close btn-round btn-default"><i
+                                class="glyphicon glyphicon-remove"></i></a>
+                    </div>#}
+                </div>
+                <div class="box-content row">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Numéro</th>
+                                                <th>Client</th>
+                                                <th>Montant</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for vente in ventes %}
+                                            <tr>
+                                                <td>{{ vente.date|date("d-m-Y") }}</td>
+                                                <td>{{ vente.id }}</td>
+                                                <td>{{ vente.nomClient }}</td>
+                                                <td>{{ vente.total   }}</td>
+                                                <td><a href="{{ path('display_facture', {'id':vente.id}) }}" target="_blank"><button>Voir la facture</button></a></td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="{{asset('joli-design/js/plugins/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('joli-design/js/plugins/bootstrap/bootstrap.min.js')}}"></script>
+{% endblock %}
+

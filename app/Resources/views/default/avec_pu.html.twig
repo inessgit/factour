@@ -1,0 +1,201 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('joli-design/css/bootstrap/bootstrap.min.css') }}" />
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="box col-md-12">
+                <div class="box-inner">
+                    <div class="box-header well">
+                        <div class="pull-right">
+                            <div class="col-md-12 well">
+                                <fieldset>
+                                    <legend>Client</legend>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="nom_client" form="form_demande" placeholder="nom">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="tel_client" form="form_demande" placeholder="téléphone">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="adr_client" form="form_demande" placeholder="adresse" class="form-control"></textarea>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <h2><i class="glyphicon"></i> Faire une facture</h2>
+
+                        {#<div class="box-icon">
+                            <a href="#" class="btn btn-setting btn-round btn-default"><i
+                                    class="glyphicon glyphicon-cog"></i></a>
+                            <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                                    class="glyphicon glyphicon-chevron-up"></i></a>
+                            <a href="#" class="btn btn-close btn-round btn-default"><i
+                                    class="glyphicon glyphicon-remove"></i></a>
+                        </div>#}
+                    </div>
+                    <div class="box-content row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label>Article</label>
+                                    <input type="text" id="article" onkeyup="affbouton();" onchange="affbouton();" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <label>Quantité</label>
+                                        <input type="number" step="any" min="0" id="quantite" onkeyup="nombrer(this.id); affbouton();" onclick="affbouton();" onchange="affbouton();" class="form-control"/>
+                                        <!--b id="mesure" >{#{articles[0].u_nom}#}</b-->
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label>Prix Unitaire</label>
+                                        <input type="number" step="any" min="0" id="pu" onkeyup="nombrer(this.id); affbouton();" onclick="affbouton();" onchange="affbouton();" class="form-control"/>
+                                        <!--b id="mesure" >{#{articles[0].u_nom}#}</b-->
+                                    </div>
+                                    <div class="col-lg-2">     
+                                        <label></label>
+                                        <button class="btn btn-primary" disabled id="ajout_demande">Ajouter au panier</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="col-lg-12">
+                        <h3>Votre panier de sortie</h3>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Article</th>
+                                    <th>Quantité</th>
+                                    <th>Prix Unitaire</th>
+                                    <th>Montant</th>
+                                </tr>
+                            </thead>
+                            <tbody id="demande_list">
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3"><b>Total HT</b></td>
+                                    <td width="20%"><input type="number" id="totalHt" class="form-control" readonly name="totalHt" form="form_demande" value="0" /></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Remise(%)</b></td>
+                                    <td width="20%"><input type="number" min="0" max="100" id="remise" class="form-control" name="remise" form="form_demande" value="0" onkeyup="calcTot();" onclick="calcTot();" onchange="calcTot()" /></td>
+                                    <td width="10%"></td>
+                                    <td width="20%"><input type="number" id="montantRemise" class="form-control" readonly name="montantRemise" form="form_demande" value="0" /></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3"><b>Net Commercial HT</b></td>
+                                    <td width="20%"><input type="number" id="netCom" class="form-control" readonly name="netCom" form="form_demande" value="0" /></td>
+                                </tr>
+                                <tr>
+                                    <td><b>TVA(%)</b></td>
+                                    <td width="20%"><input type="number" min="0" max="100" onkeyup="calcTot();" onclick="calcTot();" onchange="calcTot()" id="tva" class="form-control" name="tva" form="form_demande" value="0" /></td>
+                                    <td width="10%"></td>
+                                    <td width="20%"><input type="number" id="montantTva" class="form-control" readonly name="montantTva" form="form_demande" value="0" /></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3"><b>Total</b></td>
+                                    <td width="20%"><input type="number" id="total" class="form-control" readonly name="total" form="form_demande" value="0" /></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <form method="post"action="{{ path('pdfpage') }}" id="form_demande">
+                            <input type="submit" form="form_demande" class="btn btn-primary" value="Imprimer">
+                            <input type="hidden" form="form_demande" id="nb-articles" name="nb-articles" value="0">
+                            <input type="hidden" form="form_demande" id="" name="avec_pu" value="oui">
+                            {#<a class="btn btn-success" href="{{ path('lister_demande_sortie') }}">Liste des ventes</a>#}
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="{{asset('joli-design/js/plugins/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('joli-design/js/plugins/bootstrap/bootstrap.min.js')}}"></script>
+<script>
+    calcTot()
+    
+    function nombrer(id)
+    {
+        //alert($("#"+id).val()+" et max ="+$("#"+id).attr('max'));
+            if($("#"+id).val()=='' || $("#"+id).val()=="0" )
+            {
+                setTimeout(function(){
+                //surligne(id,false);
+                $("#"+id).val($("#"+id).val().substring(0,$("#"+id).val().length-1));
+                },100);
+            }
+    }
+    
+    function retirer(id)
+    {
+        $('#'+id).remove();
+        $("#quantite").prop('disabled', false);
+        $("#montant").prop('disabled', false);         
+        calcTot();
+        
+    }
+    
+    function calcTot(){
+        var totalHt = 0;
+        var netCom = 0;
+        var remise = 0;
+        var tva = 0;
+        var total = 0;
+        $(".mnt").each(function(){
+           totalHt += parseFloat( $(this).val() ); 
+        });
+
+        remise = parseFloat( $('#remise').val() )  * totalHt * 0.01;
+        netCom = totalHt - remise;        
+        tva = parseFloat( $('#tva').val() ) * netCom * 0.01;
+        total = netCom + tva;
+        //alert(total);
+        $('#totalHt').val( totalHt );
+        $('#montantRemise').val( remise );
+        $('#netCom').val( netCom );
+        $('#montantTva').val( tva );
+        $('#total').val( total );
+    }
+    
+    function affbouton(){
+        if($("#quantite").val()=='' || $("#quantite").val()=="0" || $("#pu").val()=='' || $("#pu").val()=="0")
+        {
+            $('#ajout_demande').prop('disabled', true);
+        }
+        else $('#ajout_demande').prop('disabled', false);
+    }
+    $("#ajout_demande").click(function(){
+        var nom_sel=$("#article").val();
+        var qte=$("#quantite").val();
+        var pu=$("#pu").val();
+        var montant=qte * pu;
+        //alert($('#nb-articles').val());
+        var id_sel = parseInt( $('#nb-articles').val() ) + 1;
+        $('#demande_list').append(
+                                '<tr id="ligne'+id_sel+'"><td width="50%"> <input form="form_demande" name="nom'+id_sel+'" type="hidden" value="'+ nom_sel +'"/>'+nom_sel+'</td>'
+                            +	'<td width="10%"><input form="form_demande" type="number" value="'+qte+'" name="qte'+id_sel+'" id="qte'+id_sel+'" onkeyup="nombrer(this.id);" class="form-control" min="0" required/></td>'
+                            +	'<td width="10%"><input form="form_demande" type="number" readonly value="'+pu+'" name="pu'+id_sel+'" id="pu'+id_sel+'" onkeyup="nombrer(this.id); calcTot();" onclick="calcTot();" onchange="calcTot()" class="form-control" min="0" required></td>'
+                            +	'<td width="20%"><input form="form_demande" type="number" readonly value="'+montant+'" name="montant'+id_sel+'" id="montant'+id_sel+'" onkeyup="nombrer(this.id); calcTot();" onclick="calcTot();" onchange="calcTot()" class="form-control mnt" min="0" required></td>'
+                            +	'<td width="5%"></td>'
+                            +	'<td width="5%">{#<img src="{{asset('img/remove.png')}}" height="20px" alt="*" onclick="retirer(\'ligne'+id_sel+'\');" title="retirer"/>#}<span onclick="retirer(\'ligne'+id_sel+'\');" title="retirer" class="btn"><i class="glyphicon glyphicon-minus" style="color: red;"></i></span></td>'
+                            +	'</tr>'
+                                 );
+                         $("#article").val("");
+                         $("#quantite").val("");
+                         $("#montant").val("");
+                         $('#nb-articles').val(id_sel);
+                         affbouton();
+                         calcTot();
+    });
+    
+    
+</script>
+{% endblock %}

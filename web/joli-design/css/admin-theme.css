@@ -1,0 +1,37 @@
+div.panel-group.accordion div.panel div.panel-heading{
+	background: #fff;
+	color: #000;
+	font-weight: bold;
+	border-bottom: solid 1px silver;
+}
+
+div.panel-group.accordion div.panel div.panel-heading h4.panel-title a:focus,
+div.panel-group.accordion div.panel div.panel-heading h4.panel-title a:active,{
+	color: green;
+}
+div.panel-group.accordion div.panel div.panel-heading h4.panel-title a{
+	color: #000;
+	font-weight: bold;
+}
+
+div.panel-group.accordion div.panel{
+	margin: 0;
+	border-radius: 0;
+	border: none;
+	/*border-bottom: solid 1px silver;*/
+}
+
+#elements-for-menu{
+	padding: 0;
+}
+
+input.form-control.inline{
+	display: inline-block;
+}
+
+div.menu-elt-style{
+	border-bottom: solid 1px silver;
+}
+div.menu-elt-style:hover{
+	background: silver;
+}
